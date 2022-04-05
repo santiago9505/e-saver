@@ -4,6 +4,8 @@ import { Layout, Menu, Breadcrumb } from "antd";
 import "antd/dist/antd.css";
 import "../assets/styles/Layout.css";
 import LogoReact from "../assets/static/react-icon.png";
+import { Table, Tag, Space } from "antd";
+
 import {
   DesktopOutlined,
   PieChartOutlined,
@@ -16,7 +18,51 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
+const { Column, ColumnGroup } = Table;
+
 const LayoutC = () => {
+  const data = [
+    {
+      key: "1",
+      account: "GATO TRII",
+      disponible: 8921216,
+    },
+    {
+      key: "1",
+      account: "GATO VALORES",
+      disponible: 19237000,
+    },
+    {
+      key: "1",
+      account: "GATO AHORROS",
+      disponible: 0,
+    },
+    {
+      key: "2",
+      account: "GATO INTERNACIONAL",
+      disponible: 0,
+    },
+    {
+      key: "3",
+      account: "SANTI TRII",
+      disponible: 10351290,
+    },
+    {
+      key: "3",
+      account: "SANTI VALORES",
+      disponible: 0,
+    },
+    {
+      key: "3",
+      account: "SANTI AHORROS",
+      disponible: 4362121,
+    },
+    {
+      key: "3",
+      account: "SANTI VALORES",
+      disponible: 11226879,
+    },
+  ];
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -57,15 +103,27 @@ const LayoutC = () => {
       <Layout className="site-layout">
         <Header className="site-layout-background" style={{ padding: 0 }} />
         <Content style={{ margin: "0 16px" }}>
-          <Breadcrumb style={{ margin: "16px 0" }}>
-            <Breadcrumb.Item>User</Breadcrumb.Item>
-            <Breadcrumb.Item>Bill</Breadcrumb.Item>
-          </Breadcrumb>
           <div
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}
           >
-            Bill is a cat.
+            <h1>CAPITAL POR UBICACIÓN</h1>
+            <Table dataSource={data}>
+              <Column title="Account" dataIndex="account" key="account" />
+              <Column
+                title="Disponible"
+                dataIndex="disponible"
+                key="disponible"
+              />
+            </Table>
+          </div>
+        </Content>
+        <Content style={{ margin: "0 16px" }}>
+          <div
+            className="site-layout-background"
+            style={{ padding: 24, minHeight: 360 }}
+          >
+            <h1>PÉRDIDAS / GANANCIAS</h1>
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
