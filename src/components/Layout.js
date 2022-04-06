@@ -1,10 +1,11 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Layout, Menu, Breadcrumb } from "antd";
 import "antd/dist/antd.css";
 import "../assets/styles/Layout.css";
 import LogoReact from "../assets/static/react-icon.png";
 import { Table, Tag, Space } from "antd";
+import { Column } from "@ant-design/plots";
 
 import {
   DesktopOutlined,
@@ -18,51 +19,61 @@ import {
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
-const { Column, ColumnGroup } = Table;
-
 const LayoutC = () => {
   const data = [
     {
-      key: "1",
-      account: "GATO TRII",
-      disponible: 8921216,
+      type: "Gato trii",
+      value: 8921000,
     },
     {
-      key: "1",
-      account: "GATO VALORES",
-      disponible: 19237000,
+      type: "Gato valores",
+      value: 19237000,
     },
     {
-      key: "1",
-      account: "GATO AHORROS",
-      disponible: 0,
+      type: "Gato ahorros",
+      value: 0,
     },
     {
-      key: "2",
-      account: "GATO INTERNACIONAL",
-      disponible: 0,
+      type: "Gato internacional",
+      value: 0,
     },
     {
-      key: "3",
-      account: "SANTI TRII",
-      disponible: 10351290,
+      type: "Santi trii",
+      value: 13771000,
     },
     {
-      key: "3",
-      account: "SANTI VALORES",
-      disponible: 0,
+      type: "Santi valores",
+      value: 0,
     },
     {
-      key: "3",
-      account: "SANTI AHORROS",
-      disponible: 4362121,
+      type: "Santi ahorros",
+      value: 4362121,
     },
     {
-      key: "3",
-      account: "SANTI VALORES",
-      disponible: 11226879,
+      type: "Santi internacional",
+      value: 11226879,
     },
   ];
+  const config = {
+    data,
+    xField: "type",
+    yField: "value",
+    columnWidthRatio: 0.8,
+    xAxis: {
+      label: {
+        autoHide: true,
+        autoRotate: false,
+      },
+    },
+    meta: {
+      type: {
+        alias: "类别",
+      },
+      value: {
+        alias: "销售额",
+      },
+    },
+  };
   const [collapsed, setCollapsed] = useState(false);
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -107,15 +118,7 @@ const LayoutC = () => {
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}
           >
-            <h1>CAPITAL POR UBICACIÓN</h1>
-            <Table dataSource={data}>
-              <Column title="Account" dataIndex="account" key="account" />
-              <Column
-                title="Disponible"
-                dataIndex="disponible"
-                key="disponible"
-              />
-            </Table>
+            <h1>PÉRDIDAS / GANANCIAS</h1>
           </div>
         </Content>
         <Content style={{ margin: "0 16px" }}>
@@ -123,7 +126,8 @@ const LayoutC = () => {
             className="site-layout-background"
             style={{ padding: 24, minHeight: 360 }}
           >
-            <h1>PÉRDIDAS / GANANCIAS</h1>
+            <h1>CAPITAL POR UBICACIÓN</h1>
+            <Column {...config} />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
