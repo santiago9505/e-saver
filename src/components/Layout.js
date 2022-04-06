@@ -1,11 +1,11 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { Layout, Menu, Breadcrumb } from "antd";
+import { useState } from "react";
+import { Layout, Menu } from "antd";
 import "antd/dist/antd.css";
 import "../assets/styles/Layout.css";
 import LogoReact from "../assets/static/react-icon.png";
-import { Table, Tag, Space } from "antd";
-import { Column } from "@ant-design/plots";
+import Equity from "./Equity";
+import Profit from "./Profit";
 
 import {
   DesktopOutlined,
@@ -20,61 +20,8 @@ const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
 
 const LayoutC = () => {
-  const data = [
-    {
-      type: "Gato trii",
-      value: 8921000,
-    },
-    {
-      type: "Gato valores",
-      value: 19237000,
-    },
-    {
-      type: "Gato ahorros",
-      value: 0,
-    },
-    {
-      type: "Gato internacional",
-      value: 0,
-    },
-    {
-      type: "Santi trii",
-      value: 13771000,
-    },
-    {
-      type: "Santi valores",
-      value: 0,
-    },
-    {
-      type: "Santi ahorros",
-      value: 4362121,
-    },
-    {
-      type: "Santi internacional",
-      value: 11226879,
-    },
-  ];
-  const config = {
-    data,
-    xField: "type",
-    yField: "value",
-    columnWidthRatio: 0.8,
-    xAxis: {
-      label: {
-        autoHide: true,
-        autoRotate: false,
-      },
-    },
-    meta: {
-      type: {
-        alias: "类别",
-      },
-      value: {
-        alias: "销售额",
-      },
-    },
-  };
   const [collapsed, setCollapsed] = useState(false);
+
   return (
     <Layout style={{ minHeight: "100vh" }}>
       <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
@@ -119,6 +66,7 @@ const LayoutC = () => {
             style={{ padding: 24, minHeight: 360 }}
           >
             <h1>PÉRDIDAS / GANANCIAS</h1>
+            <Profit />
           </div>
         </Content>
         <Content style={{ margin: "0 16px" }}>
@@ -127,7 +75,7 @@ const LayoutC = () => {
             style={{ padding: 24, minHeight: 360 }}
           >
             <h1>CAPITAL POR UBICACIÓN</h1>
-            <Column {...config} />
+            <Equity />
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
