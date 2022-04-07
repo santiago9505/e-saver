@@ -49,7 +49,7 @@ const Profit = () => {
     angleField: "value",
     colorField: "type",
     radius: 1,
-    innerRadius: 0.64,
+    innerRadius: 0.6,
     meta: {
       value: {
         formatter: (v) => `${v} $`,
