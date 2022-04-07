@@ -1,0 +1,113 @@
+[
+  {
+    "key": "1",
+    "especie": "liquidez",
+    "movimiento": "transferencia",
+    "origen": "e-saver",
+    "llegada": "gato-trii",
+    "cantidad": 1,
+    "precio": 8921216,
+    "comision": 0
+  },
+  {
+    "key": "2",
+    "especie": "liquidez",
+    "movimiento": "transferencia",
+    "origen": "e-saver",
+    "llegada": "gato-valores",
+    "cantidad": 1,
+    "precio": 18605000,
+    "comision": 0
+  },
+  {
+    "key": "3",
+    "especie": "liquidez",
+    "movimiento": "transferencia",
+    "origen": "e-saver",
+    "llegada": "santi-trii",
+    "cantidad": 1,
+    "precio": 13694290,
+    "comision": 0
+  },
+  {
+    "key": "4",
+    "especie": "liquidez",
+    "movimiento": "transferencia",
+    "origen": "e-saver",
+    "llegada": "santi-ahorros",
+    "cantidad": 1,
+    "precio": 15546000,
+    "comision": 0
+  },
+  {
+    "key": "5",
+    "especie": "liquidez",
+    "movimiento": "transferencia",
+    "origen": "e-saver",
+    "llegada": "gato-ahorros",
+    "cantidad": 1,
+    "precio": 43000,
+    "comision": 0
+  },
+
+  {
+    "key": "6",
+    "especie": "conconcret",
+    "movimiento": "compra",
+    "origen": "gato-valores",
+    "llegada": "gato-valores",
+    "cantidad": 49000,
+    "precio": 310,
+    "comision": 51000
+  },
+  {
+    "key": "7",
+    "especie": "conconcret",
+    "movimiento": "venta",
+    "origen": "gato-valores",
+    "llegada": "gato-valores",
+    "cantidad": 30000,
+    "precio": 330,
+    "comision": 51000
+  },
+  {
+    "key": "8",
+    "especie": "pfaval",
+    "movimiento": "compra",
+    "origen": "santi-trii",
+    "llegada": "santi-trii",
+    "cantidad": 4000,
+    "precio": 833,
+    "comision": 11000
+  },
+  {
+    "key": "9",
+    "especie": "conconcret",
+    "movimiento": "venta",
+    "origen": "valores-gato",
+    "llegada": "valores-gato",
+    "cantidad": 10000,
+    "precio": 319,
+    "comision": 35000
+  },
+  {
+    "key": "10",
+    "especie": "liquidez",
+    "movimiento": "transferencia",
+    "origen": "santi-ahorros",
+    "llegada": "santi-internacional",
+    "cantidad": 1,
+    "precio": 11356500,
+    "comision": 129621
+  },
+  {
+    "key": "11",
+    "especie": "conconcret",
+    "movimiento": "venta",
+    "origen": "gato-valores",
+    "llegada": "gato-valores",
+    "cantidad": 9000,
+    "precio": 320,
+    "comision": 11000
+  }
+]

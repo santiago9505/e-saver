@@ -1,118 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Table, Input, InputNumber, Popconfirm, Form, Typography } from "antd";
-const originData = [
-  {
-    key: "1",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "2",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "3",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "4",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "5",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-
-  {
-    key: "6",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "7",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "8",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "9",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-  {
-    key: "10",
-    especie: "Liquidez",
-    movimiento: "transferencia",
-    origen: "e-saver",
-    llegada: "gato-trii",
-    cantidad: 1,
-    precio: 8921216,
-    comision: 0,
-    total: 8921216,
-  },
-];
 
 const EditableCell = ({
   editing,
@@ -150,10 +37,22 @@ const EditableCell = ({
 };
 const EditableTable = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+  const [data, setData] = useState([]);
   const [editingKey, setEditingKey] = useState("");
 
   const isEditing = (record) => record.key === editingKey;
+
+  useEffect(() => {
+    asyncFetch();
+  }, []);
+  const asyncFetch = () => {
+    fetch("https://e-saver-df87d-default-rtdb.firebaseio.com/bitacora.json")
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .catch((error) => {
+        console.log("fetch data failed", error);
+      });
+  };
 
   const edit = (record) => {
     form.setFieldsValue({
@@ -164,7 +63,6 @@ const EditableTable = () => {
       cantidad: 0,
       precio: 0,
       comision: 0,
-      total: 0,
       ...record,
     });
     setEditingKey(record.key);
